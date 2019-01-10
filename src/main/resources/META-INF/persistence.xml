@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <class>cn.kingofworld.entity.FriendshipEntity</class>
+        <class>cn.kingofworld.entity.MessageEntity</class>
+        <class>cn.kingofworld.entity.UserEntity</class>
+        <class>cn.kingofworld.entity.GroupEntity</class>
+        <class>cn.kingofworld.entity.GrouprelationshipmappingEntity</class>
+        <class>cn.kingofworld.entity.MygroupEntity</class>
+        <properties>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/WeConnect"/>
+            <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3305/test2"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3305/test2"/>
+            <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3305/test2"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>

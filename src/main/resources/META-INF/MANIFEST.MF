@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Class-Path: Libs/SpringMVCProjectOne.jar Libs/antlr-2.7.7.jar/ Libs/ao
+ palliance-1.0.jar/ Libs/aspectjrt-1.8.9.jar/ Libs/aspectjweaver-1.5.4
+ .jar/ Libs/c3p0-0.9.1.jar/ Libs/c3p0-0.9.5.2.jar/ Libs/commons-fileup
+ load-1.3.2.jar/ Libs/commons-io-2.2.jar/Libs/ Libs/commons-lang3-3.3.
+ 2.jar/ Libs/commons-logging-1.2.jar/ Libs/dom4j-1.6.1.jar/ Libs/hiber
+ nate-c3p0-4.1.6.Final.jar/ Libs/hibernate-commons-annotations-4.0.1.F
+ inal.jar/ Libs/hibernate-core-4.1.6.Final.jar/ Libs/hibernate-entitym
+ anager-4.1.6.Final.jar/ Libs/hibernate-jpa-2.0-api-1.0.1.Final.jar/ L
+ ibs/hibernate-validator-4.1.0.Final.jar/ Libs/jackson-annotations-2.8
+ .0.jar/ Libs/jackson-core-2.8.3.jar/ Libs/jackson-databind-2.8.3.jar/
+  Libs/javassist-3.15.0-GA.jar/ Libs/jboss-logging-3.1.0.GA.jar/ Libs/
+ jboss-transaction-api_1.1_spec-1.0.0.Final.jar/ Libs/jcl-over-slf4j-1
+ .7.19.jar/ Libs/jstl-1.2.jar/ Libs/mchange-commons-java-0.2.11.jar/ L
+ ibs/mysql-connector-java-5.1.39.jar/ Libs/slf4j-api-1.7.19.jar/ Libs/
+ slf4j-nop-1.6.4.jar/ Libs/spring-aop-4.2.5.RELEASE.jar/ Libs/spring-b
+ eans-4.2.6.RELEASE.jar/ Libs/spring-context-4.2.6.RELEASE.jar/ Libs/s
+ pring-core-4.2.6.RELEASE.jar/ Libs/spring-data-commons-1.12.1.RELEASE
+ .jar/ Libs/spring-data-jpa-1.10.1.RELEASE.jar/ Libs/spring-expression
+ -4.2.6.RELEASE.jar/ Libs/spring-jdbc-4.2.5.RELEASE.jar/ Libs/spring-o
+ rm-4.2.5.RELEASE.jar/ Libs/spring-tx-4.2.5.RELEASE.jar/ Libs/spring-w
+ eb-4.2.6.RELEASE.jar/ Libs/spring-webmvc-4.2.6.RELEASE.jar/ Libs/stan
+ dard-1.1.2.jar/ Libs/validation-api-1.0.0.GA.jar/
+Main-Class: cn.kingofworld.C2C.WeServer
+

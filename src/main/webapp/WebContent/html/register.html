@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- html document -->
+    <link rel="icon" type="image/png" href="WebContent/bgpic/icon.png">
+    <title>kingofworld注册页面</title>
+    <link rel="stylesheet" href="WebContent/css/register.css">
+</head>
+<body>
+
+<div class="registerpage">
+    <div class="registerpage_title">
+    </div>
+    <div class="registerpage_content">
+        <form action="" method="post" name="register" id="zhuce" enctype="multipart/form-data">
+            <table class="content">
+                <tr>
+                    <td><div class="showmsg"></div></td><!--用户id只能是英文加数字-->
+                    <td><input class="mytext" id="userid" name="userid"  type="text" placeholder="用户名" onkeyup="value=value.replace(/[\W]/g,'') "
+                               onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/></td>
+                    <td><div class="showmsg" id="userid_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td><input class="mytext" id="firstpass" name="password" type="password" placeholder="密码"/></td>
+                    <td><div class="showmsg" id="firstpass_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td><input class="mytext" id="repeat" name="repeat" type="password" placeholder="确认密码"/></td>
+                    <td><div class="showmsg" id="repeat_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td><input class="mytext" id="username" name="username" type="text" placeholder="姓名"/></td>
+                    <td><div class="showmsg" id="username_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td><input class="mytext" id="nickname" name="nickname" type="text" placeholder="昵称"/></td>
+                    <td><div class="showmsg" id="nickname_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td>
+                        <select  class="mytext" id="usergender" name="usergender" >
+                            <option>男</option>
+                            <option>女</option>
+                            <option>其他</option>
+                        </select>
+                    </td>
+                    <td><div class="showmsg"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td>
+                        <select id="year" name="year" style="height:25px;width:78px;border-radius:4px;">
+
+                        </select>
+                        <select id="month" name="month" style="height:25px;width:78px;border-radius:4px;">
+
+                        </select>
+                        <select id="day" name="day" style="height:25px;width:78px;border-radius:4px;">
+                            <option>1</option>
+                        </select></td>
+                    <td><div class="showmsg"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td><input id="phonenum" name="usertel" class="mytext" type="text" placeholder="手机号"/></td>
+                    <td><div class="showmsg" id="phonenum_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td>
+                        <select id="province" name="province" style="height:25px;width:121px;border-radius:4px;">
+                            <option>江苏</option>
+                            <option>浙江</option>
+                            <option>上海</option>
+                        </select>
+                        <select id="city" name="city" style="height:25px;width:121px;border-radius:4px;">
+                            <option>南京</option>
+                            <option>镇江</option>
+                            <option>苏州</option>
+                            <option>无锡</option>
+                            <option>常州</option>
+                            <option>扬州</option>
+                            <option>泰州</option>
+                            <option>南通</option>
+                            <option>盐城</option>
+                            <option>淮安</option>
+                            <option>宿迁</option>
+                            <option>徐州</option>
+                            <option>连云港</option>
+                        </select>
+                    </td>
+                    <td><div class="showmsg"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td>
+                        <input value="头像"type="button" style="height:25px;width:121px;border-radius:4px;"/>
+                        <input type="file" name="file" id="portrait" accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="height:25px;width:121px;border-radius:4px;"/>
+                    </td>
+                    <td><div class="showmsg" id="portrait_div"></div></td>
+                </tr>
+                <tr>
+                    <td><div class="showmsg"></div></td>
+                    <td style="width:250px;"><input type="checkbox" id="check" >
+                        我已审阅并接受
+                        <a href="#" style="text-decoration:none;"><font color="#59dddd" size="2px">《服务协议》</font></a>
+                    </td>
+                    <td><div class="showmsg" id="check_div"></div></td>
+                </tr>
+                <tr>
+                    <td style="width:550px;text-align: center;">
+                        <input id="btnSubmit" type="button" value="立即注册"
+                               style="height:40px;width:250px;background: #f84c34;
+                               color:#fff;font-size: 1.2em;
+                               border-radius:5px;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 0.5em;width:550px;text-align: center;"><a style="color:white;"href="/">已有账号?前往登录!</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="WebContent/JS/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="WebContent/JS/jquery.form.js"></script>
+<script type="text/javascript" src="WebContent/JS/register.js"></script>
+</body>
+</html>

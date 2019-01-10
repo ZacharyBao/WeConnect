@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="WebContent/bgpic/icon.png">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>WeConnect</title>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="WebContent/JS/jquery-2.1.1.min.js"></script>
+    <link href="WebContent/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="WebContent/css/UserPage.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div id="content">
+    <div id="leftside">
+        <div id="left_top">
+            <div style="width:248px;height:44px;">
+                <div class="touxiang">
+                    <img src="WebContent/bgpic/icon.png" class="touxiang" id="myTouxiang"/>
+                </div>
+                <div id="usernickname">
+
+                </div>
+                <div id="list_button">
+                    <div class="dropdown">
+                        <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <img src="WebContent/bgpic/anjian.png" width="100%">
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dLabel" id="setlist">
+                            <li data-toggle="modal" data-target="#myModal_6">修改头像</li>
+                            <li data-toggle="modal" data-target="#myModal_2" id="showPersonInfoBtn">个人资料</li>
+                            <li data-toggle="modal" data-target="#myModal_8">修改密码</li>
+                            <li data-toggle="modal" data-target="#myModal_3">添加好友</li>
+                            <li data-toggle="modal" data-target="#myModal_4" id="prepareSystemMsg">系统消息</li>
+                            <li data-toggle="modal" data-target="#myModal_7">创建群组</li>
+                            <li data-toggle="modal" data-target="#myModal_5" style="border-bottom: 0px;">安全退出</li>
+                        </ul>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" style="width:300px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_6">修改头像</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post"  id="change_portrait" enctype="multipart/form-data">
+                                    <input type="file" name="changefile"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="height:25px;width:250px;border-radius:4px;"/>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id="mychange" >修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog"  role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_2">个人资料</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <tr>
+                                            <td><label class="mylabel">用户名</label></td>
+                                            <td><input class="mytext" id="userid" name="userid" type="text"/></td>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">姓名</label></td>
+                                            <td><input class="mytext" id="username" name="username" type="text" /></td>
+                                            <td><div class="showmsg" id="username_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">昵称</label></td>
+                                            <td><input class="mytext" id="nickname" name="nickname" type="text"/></td>
+                                            <td><div class="showmsg" id="nickname_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">性别</label></td>
+                                            <td>
+                                                <select  class="mytext" id="usergender" name="usergender" >
+                                                    <option>男</option>
+                                                    <option>女</option>
+                                                    <option>其他</option>
+                                                </select>
+                                            </td>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">生日</label></td>
+                                            <td>
+                                                <select id="year" style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+
+                                                </select>
+                                                <select id="month"style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+
+                                                </select>
+                                                <select id="day"style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+
+                                                </select></td>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">手机号</label></td>
+                                            <td><input id="phonenum" name="usertel" class="mytext" type="text" /></td>
+                                            <td><div class="showmsg" id="phonenum_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">故乡</label></td>
+                                            <td>
+                                                <select id="province" style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                    <option>江苏</option>
+                                                    <option>浙江</option>
+                                                    <option>上海</option>
+                                                </select>
+                                                <select id="city"style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                    <option>南京</option>
+                                                    <option>镇江</option>
+                                                    <option>苏州</option>
+                                                    <option>无锡</option>
+                                                    <option>常州</option>
+                                                    <option>扬州</option>
+                                                    <option>泰州</option>
+                                                    <option>南通</option>
+                                                    <option>盐城</option>
+                                                    <option>淮安</option>
+                                                    <option>宿迁</option>
+                                                    <option>徐州</option>
+                                                    <option>连云港</option>
+                                                </select>
+                                            </td>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">个性签名</label></td>
+                                            <td><input id="signature" name="signature" class="mytext" type="text" /></td>
+                                            <td><div class="showmsg" id="signature_div"></div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id="edit_person_info">编辑</button>
+                                    <button type="button" class="btn btn-primary" id="save_change">保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" >
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_8">修改密码</h4>
+                                </div>
+                                <div class="modal-body" style="border-radius: 4px;">
+                                    <table>
+                                        <tr>
+                                            <td><label class="mylabel">原密码</label></td>
+                                            <td><input class="mytext" id="origionalPassword" name="origionalPassword" type="password"/></td>
+                                            <td><div class="showmsg" id="origionalPassword_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">新密码</label></td>
+                                            <td><input class="mytext" id="newPassword" name="newPassword" type="password"/></td>
+                                            <td><div class="showmsg" id="newPassword_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">确认密码</label></td>
+                                            <td><input class="mytext" id="repeatNewPassword" name="repeatNewPassword" type="password"/></td>
+                                            <td><div class="showmsg" id="repeatNewPassword_div"></div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="changePassword">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" style="width:300px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_3">查找好友</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table>
+                                        <tr>
+                                            <td><input class="mytext" style="width:150px;margin-right:5px;" id="searchInput" name="searchInput" type="text" placeholder="请输入好友的账号"/></td>
+                                            <td><button type="button" id="searchBtn" class="btn btn-default">搜索</button></td>
+                                        </tr>
+                                    </table>
+                                    <table id="searchInfo">
+                                        <!--<tr>
+                                            <td>账号：</td><td>1039952593</td>
+                                        </tr>
+                                        <tr>
+                                            <td>昵称：</td><td>yep</td>
+                                        </tr>
+                                        <tr>
+                                            <td>地区：</td><td>江苏镇江</td>
+                                        </tr>-->
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" id="addBtn">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" style="width:400px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_4">系统消息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="friendRequest">
+                                        <table id="systemMsg">
+                                            <!--<tr>
+                                                <td style="width:160px">yep</td>
+                                                <td style="width:120px">&nbsp;请求添加你为好友</td>
+                                                <td style="width:28px;"> <button type="button"  class="btn btn-primary" onclick="approveRequest(this)">同意</button></td>
+                                                <td style="width:28px;"> <button type="button"  class="btn btn-danger" onclick="declineRequest(this)">拒绝</button></td>
+                                            </tr>-->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" >
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_7">创建群组</h4>
+                                </div>
+                                <div class="modal-body" style="border-radius: 4px;">
+                                    <form action="" method="post" name="registerGroup" id="registerGroup" enctype="multipart/form-data">
+                                        <table>
+                                            <tr>
+                                                <td><label class="mylabel">群组Id</label></td>
+                                                <td><input class="mytext" id="groupId" name="groupId" type="text"/></td>
+                                                <td><div class="showmsg" id="groupId_div"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="mylabel">群组名称</label></td>
+                                                <td><input class="mytext" id="groupName" name="groupName" type="text"/></td>
+                                                <td><div class="showmsg" id="groupName_div"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="mylabel">选择头像</label></td>
+                                                <td><input type="file" id="groupHeadportrait" name="groupHeadportrait"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="border-radius:4px;"/></td>
+                                                <td><div class="showmsg" id="groupHeadportrait_div"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="mylabel">邀请好友</label></td>
+                                                <td><input class="mytext" id="inviteFriend" type="text" autocomplete="off"/></td>
+                                                <div id="searchResult" style="display: none">
+                                                    <!--<div class="searchItem">
+                                                        <div class="searchTouxiang"><img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="searchImgTouxiang"/></div>
+                                                        <div class="searchItemUsername">别处理</div>
+                                                    </div>-->
+                                                </div>
+                                                <td><div class="showmsg"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="mylabel">已加好友</label></td>
+                                                <td>
+                                                    <div id="addedFriend" style="width:250px;max-height:200px;">
+                                                        <!--<div class="addedTouxiang">
+                                                            <img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="addedImgTouxiang"/>
+                                                        </div>-->
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-default" id="clearAddedFriend">重新添加</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="createGroup">创建</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal_5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document" style="width:200px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel_5">您确定要退出?</h4>
+                                </div>
+                                <div class="modal-body" style="border-radius: 4px;">
+                                    <button type="button" class="btn btn-success" id="signout">
+                                        <font>确定</font>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" id="cancel" data-dismiss="modal">
+                                        <font>取消</font>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="left_mid">
+            <div style="width:248px;height:30px;background: yellowgreen">
+                <div id="search_icon"></div>
+                <div id="search_text">
+                    <input id="search" name="search" type="text" placeholder="搜索" autocomplete="off"
+                           style="border:none;color:white;outline:medium;height:30px;width:218px;background: #26292e;"/>
+                    <div id="searchPage" style="display: none;">
+                        <!--<div class="searchItem_2">
+                            <div class="searchTouxiang_2"><img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="searchImgTouxiang_2"/></div>
+                            <div class="searchItemUsername_2">别处理</div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="left_bottom">
+            <ul id="friendlist">
+                <!--<li>
+                    <div  class="showFriendItem" id="11111111" onclick="click_showFriendItem(this)">
+                        <div class="in_showFriendItem">
+                            <div class="friend_touxiang">
+                                <img src="WebContent/bgpic/icon.png" class="touxiang"/>
+                            </div>
+                            <div class="friend_brief">
+                                <div class="friend_name">鲍东</div>
+                                <div class="friend_signature">JUST ME MYSELF N I</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+    <div id="rightside">
+        <div id="right_top">
+            <div id="chatMateName">
+                <div id="in_chatMateName" data-toggle="modal" data-target="#myModal_1" style="position:relative;z-index:2">
+                <!--<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>-->
+                <!--这个div的z-index设置为2就是为了比底下的聊天窗口的z-index值要高，因为这个div有一个显示群组成员信息的div（这个div的z-index值跟随其父容器），
+                点击打开这个div展示成员信息时，会盖住底下的聊天窗口，而此时如果z-index值小于聊天窗口，会导致这显示群成员信息的div没在最表层，导致其滚动条失效-->
+                    <!-- Modal -->
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal_1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document" style="width:400px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel_1">好友资料</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <td><label class="mylabel">用户名</label></td>
+                                        <td><div class="mytext" id="friend_userid" name="userid" type="text"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">姓名</label></td><!--底下的input需要加自动居中属性，因为全局居中属性对input不适用-->
+                                        <td><input class="mytext" id="friend_username" name="username" type="text" style="text-align: center;"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">昵称</label></td>
+                                        <td><input class="mytext" id="friend_nickname" name="nickname" type="text" style="text-align: center;"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">性别</label></td>
+                                        <td><div  class="mytext" id="friend_usergender"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">生日</label></td>
+                                        <td>
+                                            <div id="friend_birthday" class="mytext"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">星座</label></td>
+                                        <td>
+                                            <div id="friend_constellation" class="mytext"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">手机号</label></td>
+                                        <td><div id="friend_phonenum" name="usertel" class="mytext" type="text"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">故乡</label></td>
+                                        <td>
+                                            <div id="friend_hometown" class="mytext"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label class="mylabel">个性签名</label></td>
+                                        <td><input id="friend_signature" name="signature" class="mytext" type="text" style="text-align: center;"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" id="deleteFriend">删除好友</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal 这个modal用来显示群组信息 -->
+                <div class="modal fade" id="myModal_9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel_9">群组信息</h4>
+                            </div>
+                            <div class="modal-body" style="border-radius: 4px;">
+                                <form action="" method="post" name="editGroupInfo" id="editGroupInfo" enctype="multipart/form-data">
+                                    <table>
+                                        <tr>
+                                            <td><label class="mylabel">群组Id</label></td>
+                                            <td><input class="mytext" id="editGroupId" name="editGroupId" type="text"/></td>
+                                            <td><div class="showmsg" id="editGroupId_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">群组名称</label></td>
+                                            <td><input class="mytext" id="editGroupName" name="editGroupName" type="text"/></td>
+                                            <td><div class="showmsg" id="editGroupName_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">群主Id</label></td>
+                                            <td><input class="mytext" id="editCreatorId" name="editCreatorId" type="text"/></td>
+                                            <td><div class="showmsg" id="editCreatorId_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">创建时间</label></td>
+                                            <td><input class="mytext" id="editCreateTime" name="editCreateTime" type="text"/></td>
+                                            <td><div class="showmsg" id="editCreateTime_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">更改头像</label></td>
+                                            <td ><input type="file" id="editGroupHeadportrait" name="editGroupHeadportrait"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="border-radius:4px;"/></td>
+                                            <td><div class="showmsg" id="editGroupHeadportrait_div"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">邀请好友</label></td>
+                                            <td><input class="mytext" id="editInviteFriend" type="text" autocomplete="off"/></td>
+                                            <div id="editSearchResult" style="display: none">
+                                                <!--<div class="editSearchItem">
+                                                    <div class="editSearchTouxiang"><img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="editSearchImgTouxiang"/></div>
+                                                    <div class="editSearchItemUsername">别处理</div>
+                                                </div>-->
+                                            </div>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label class="mylabel">已加好友</label></td>
+                                            <td>
+                                                <div id="addedFriend2" style="width:250px;max-height:200px;">
+                                                    <!--<div class="addedTouxiang">
+                                                        <img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="addedImgTouxiang"/>
+                                                    </div>-->
+                                                </div>
+                                            </td>
+                                            <td><div class="showmsg"></div></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" id="clearFile">取消上传头像</button>
+                                <button type="button" class="btn btn-default" id="clearAddedFriend2">重新邀请</button>
+                                <button type="button" class="btn btn-primary" id="saveEditedGroup">保存修改</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal 这个modal用来显示退出群组的相关信息-->
+                <div class="modal fade" id="myModal_10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document" style="width:250px;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel_10">您确定要退出群组?</h4>
+                            </div>
+                            <div class="modal-body" style="border-radius: 4px;">
+                                <button type="button" class="btn btn-success" id="quitGroup">
+                                    <font>确定</font>
+                                </button>
+                                <button type="button" class="btn btn-danger" id="notQuit" data-dismiss="modal">
+                                    <font>取消</font>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right_mid">
+            <!--<ul id="chatcontent">
+                <li>
+                    <span class="time">2017-11-11 18.08</span>
+                </li>
+                <li>
+                    <img src="WebContent/bgpic/anjian.png" class="touxiang_sender"/>
+                    <span class="send_msg">jjjjjjj</span>
+                </li>
+                <li>
+                    <img src="WebContent/bgpic/anjian.png" class="touxiang_receiver"/>
+                    <span class="receive_msg">jjjjjjj</span>
+                </li>
+                <li>
+                    <img src="WebContent/bgpic/anjian.png" class="touxiang_sender"/>
+                    <span class="send_msg">发色即是空积分卡时间飞逝
+                        发色即是空积分卡时间飞逝发色即是空积分卡时间飞逝发色即是空积分卡时间飞逝发色即是空积分卡时间飞逝发色即是空积分卡时间飞逝
+                    </span>
+                </li>
+            </ul>-->
+        </div>
+        <div id="right_bottom">
+            <div id="textArea">
+                <textarea id="in_textArea"></textarea>
+            </div>
+            <div style="height:40px;width:682px;text-align: right;">
+                <button id="toSend"style="height:30px;width:90px;background: #f8f8f8;outline: none;border:1px solid #c1c1c1;border-radius: 4px;">发送</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="copyright" style="width:1000px;margin:0 auto;color:white;font-family: 幼圆;text-align: center;">©2016-2018 www.kingofworld.cn(Zachary Bao).All Right Reserved</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script type="text/javascript" src="WebContent/JS/jquery.form.js"></script>
+<script src="WebContent/Bootstrap/js/bootstrap.min.js"></script>
+<script src="WebContent/JS/UserPage_friendlist_V2.0.js"></script>
+<script src="WebContent/JS/UserPage_V2.0.js"></script>
+<script src="WebContent/JS/UserPage_personalinfo.js"></script>
+<script src="WebContent/JS/UserPage_friendinfo_V2.0.js"></script>
+<script src="WebContent/JS/UserPage_groupinfo.js"></script>
+<script src="WebContent/JS/UserPage_signout.js"></script>
+<script src="WebContent/JS/UserPage_addfriend.js"></script>
+<script src="WebContent/JS/UserPage_creategroup.js"></script>
+<script src="WebContent/JS/UserPage_deletefriend_V2.0.js"></script>
+<script src="WebContent/JS/UserPage_systemmsg.js"></script>
+</body>
+</html>
