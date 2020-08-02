@@ -14,20 +14,24 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class GrouprelationshipmappingService extends BaseService<GrouprelationshipmappingEntity,Integer> {
+public class GrouprelationshipmappingService extends BaseService<GrouprelationshipmappingEntity, Integer> {
     @Resource
     private GrouprelationshipmappingDao grouprelationshipmappingDao;
+
     @Resource
-    public void setGrouprelationshipmappingDao(GrouprelationshipmappingDao grouprelationshipmappingDao){
+    public void setGrouprelationshipmappingDao(GrouprelationshipmappingDao grouprelationshipmappingDao) {
         super.setBaseDao(grouprelationshipmappingDao);
     }
+
     public List<Group> getGroups(String id) {
         return grouprelationshipmappingDao.getGroups(id);
     }
-    public Group getOneGroup(String groupId){
+
+    public Group getOneGroup(String groupId) {
         return grouprelationshipmappingDao.getOneGroup(groupId);
     }
-    public void deleteItemByUserIdAndGroupId(String userId,String groupId){
-        grouprelationshipmappingDao.deleteItemByUserIdAndGroupId(userId,groupId);
+
+    public void deleteItemByUserIdAndGroupId(String userId, String groupId) {
+        grouprelationshipmappingDao.deleteItemByUserIdAndGroupId(userId, groupId);
     }
 }

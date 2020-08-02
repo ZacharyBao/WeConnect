@@ -24,30 +24,30 @@ public class GrouprelationshipmappingController {
 
     @ResponseBody
     @RequestMapping("/loadGroups")
-    public List<Group> loadGroups(String id){
-        List<Group> groupList=grouprelationshipmappingService.getGroups(id);
+    public List<Group> loadGroups(String id) {
+        List<Group> groupList = grouprelationshipmappingService.getGroups(id);
         return groupList;
     }
 
     @ResponseBody
     @RequestMapping("/loadOneGroup")
-    public List<Group> loadOneGroup(String id){
-        List<Group> groupList= new ArrayList<>();
-        Group group=grouprelationshipmappingService.getOneGroup(id);
+    public List<Group> loadOneGroup(String id) {
+        List<Group> groupList = new ArrayList<>();
+        Group group = grouprelationshipmappingService.getOneGroup(id);
         groupList.add(group);
         return groupList;
     }
 
     @ResponseBody
     @RequestMapping("/quitGroup")
-    public String quitGroup(HttpServletRequest request,String userId, String groupId){
-        grouprelationshipmappingService.deleteItemByUserIdAndGroupId(userId,groupId);
+    public String quitGroup(HttpServletRequest request, String userId, String groupId) {
+        grouprelationshipmappingService.deleteItemByUserIdAndGroupId(userId, groupId);
         //将新加入的小组成员添加到服务器群组列表里面
-        HttpSession session=request.getSession();
-        Queue<String> sendQueue=(Queue<String>)session.getAttribute("send");
-        sendQueue.offer("quit,"+userId+","+groupId);
-        session.setAttribute("send",sendQueue);//更新消息一定要放在更新flag之前，因为flag一但满足，线程会抢在消息更新之前
-        session.setAttribute("send_flag","1");
+        HttpSession session = request.getSession();
+        Queue<String> sendQueue = (Queue<String>) session.getAttribute("send");
+        sendQueue.offer("quit," + userId + "," + groupId);
+        session.setAttribute("send", sendQueue);//更新消息一定要放在更新flag之前，因为flag一但满足，线程会抢在消息更新之前
+        session.setAttribute("send_flag", "1");
         return "{\"msg\":\"success\"}";
     }
 }

@@ -14,7 +14,7 @@ function loadFriends() {
         data: {
             id: userId
         },
-        beforeSend: function(request) {
+        beforeSend: function (request) {
             request.setRequestHeader("myflag", "y");
         },
         success: function (data) {
@@ -41,7 +41,7 @@ function loadFriends() {
 }
 
 //在好友列表当中加载一个好友item
-function loadOneFriend(newFriendId){
+function loadOneFriend(newFriendId) {
     $.ajax({
         url: "/loadOneFriend",
         type: "POST",
@@ -50,7 +50,7 @@ function loadOneFriend(newFriendId){
         data: {
             id: newFriendId
         },
-        beforeSend: function(request) {
+        beforeSend: function (request) {
             request.setRequestHeader("myflag", "y");
         },
         success: function (data) {
@@ -83,7 +83,7 @@ function loadGroups() {
         data: {
             id: userId
         },
-        beforeSend: function(request) {
+        beforeSend: function (request) {
             request.setRequestHeader("myflag", "y");
         },
         success: function (data) {
@@ -117,7 +117,7 @@ function loadOneGroup(newGroupId) {
         data: {
             id: newGroupId
         },
-        beforeSend: function(request) {
+        beforeSend: function (request) {
             request.setRequestHeader("myflag", "y");
         },
         success: function (data) {
@@ -140,12 +140,11 @@ function loadOneGroup(newGroupId) {
 }
 
 
-
 //智能提示框，用于好友列表中搜索好友，创建群组时搜索需要添加的好友
 function searchFriend(searchInput, searchPage, item, searchTouxiang, searchImgTouxiang, searchItemUsername, typeFlag) {
     var groupList;//存放满足条件的小组id
     var list;//存放满足条件的好友id
-    var scrollPosition=0;
+    var scrollPosition = 0;
     $("#" + searchInput).keyup(function (evt) {
         var k = window.event ? evt.keyCode : evt.which;
         var keyword = $("#" + searchInput).val();
@@ -211,9 +210,9 @@ function searchFriend(searchInput, searchPage, item, searchTouxiang, searchImgTo
                     $('.' + item + '.hover').prev().prev().addClass("hover");
                     $('.' + item + '.hover').next().next().removeClass("hover");
                     //$('#' + searchInput).val($('.' + item + '.hover').text());
-                    $('#'+searchInput).val($('.' + item + '.hover').text());
-                    controlScrollPosition(item,1,scrollPosition,searchPage);
-                    scrollPosition=$("#"+searchPage).scrollTop();
+                    $('#' + searchInput).val($('.' + item + '.hover').text());
+                    controlScrollPosition(item, 1, scrollPosition, searchPage);
+                    scrollPosition = $("#" + searchPage).scrollTop();
                 } else {//当满足条件的好友没有时，只有满足条件的群组，此时的groupTipBar就会出现在第一个item
                     //什么都不做
                 }
@@ -221,25 +220,25 @@ function searchFriend(searchInput, searchPage, item, searchTouxiang, searchImgTo
                 $('.' + item + '.hover').prev().addClass("hover");
                 $('.' + item + '.hover').next().removeClass("hover");
                 //$('#' + searchInput).val($('.' + item + '.hover').text());
-                $('#'+searchInput).val($('.' + item + '.hover').text());
-                controlScrollPosition(item,1,scrollPosition,searchPage);
-                scrollPosition=$("#"+searchPage).scrollTop();
+                $('#' + searchInput).val($('.' + item + '.hover').text());
+                controlScrollPosition(item, 1, scrollPosition, searchPage);
+                scrollPosition = $("#" + searchPage).scrollTop();
             }
         } else if (k == 40) {//下箭头
             if ($('.' + item + '.hover').next().attr("id") == "groupTipBar") {
                 $('.' + item + '.hover').next().next().addClass("hover");
                 $('.' + item + '.hover').prev().prev().removeClass("hover");
                 //$('#' + searchInput).val($('.' + item + '.hover').text());
-                $('#'+searchInput).val($('.' + item + '.hover').text());
-                controlScrollPosition(item,2,scrollPosition,searchPage);
-                scrollPosition=$("#"+searchPage).scrollTop();
+                $('#' + searchInput).val($('.' + item + '.hover').text());
+                controlScrollPosition(item, 2, scrollPosition, searchPage);
+                scrollPosition = $("#" + searchPage).scrollTop();
             } else if ($('.' + item + '.hover').next().length > 0) {//如果接下来的元素存在
                 $('.' + item + '.hover').next().addClass("hover");
                 $('.' + item + '.hover').prev().removeClass("hover");
                 //$('#' + searchInput).val($('.' + item + '.hover').text());
-                $('#'+searchInput).val($('.' + item + '.hover').text());
-                controlScrollPosition(item,2,scrollPosition,searchPage);
-                scrollPosition=$("#"+searchPage).scrollTop();
+                $('#' + searchInput).val($('.' + item + '.hover').text());
+                controlScrollPosition(item, 2, scrollPosition, searchPage);
+                scrollPosition = $("#" + searchPage).scrollTop();
             } else {//不存在则什么都不做
 
             }
@@ -265,12 +264,11 @@ function searchFriend(searchInput, searchPage, item, searchTouxiang, searchImgTo
             }
             $("#" + searchPage).empty();//清空并关闭智能提示框
             $("#" + searchPage).css("display", "none");
-            scrollPosition=0;
-        }
-        else {
+            scrollPosition = 0;
+        } else {
             $("#" + searchPage).empty();
             $("#" + searchPage).css("display", "none");
-            scrollPosition=0;
+            scrollPosition = 0;
         }
     });
 }
@@ -324,25 +322,25 @@ function mouseClick(item, searchInput, searchPage, typeFlag) {
 }
 
 //实时控制智能提示框的滚动位置，当使用上下方向键的时候
-function controlScrollPosition(item,type,scrollPosition,searchPage) {
+function controlScrollPosition(item, type, scrollPosition, searchPage) {
     var currentPosition;
-    if (type==1) {//up键
-        if($('.' + item + '.hover').position().top<0){
-            $("#"+searchPage).scrollTop(scrollPosition);
-        }else if($('.' + item + '.hover').position().top<=44){
+    if (type == 1) {//up键
+        if ($('.' + item + '.hover').position().top < 0) {
+            $("#" + searchPage).scrollTop(scrollPosition);
+        } else if ($('.' + item + '.hover').position().top <= 44) {
             currentPosition = $("#searchPage").scrollTop();
-            $("#"+searchPage).scrollTop(currentPosition - 44);
-        }else if($('.' + item + '.hover').position().top>256){
-            $("#"+searchPage).scrollTop(scrollPosition);
+            $("#" + searchPage).scrollTop(currentPosition - 44);
+        } else if ($('.' + item + '.hover').position().top > 256) {
+            $("#" + searchPage).scrollTop(scrollPosition);
         }
-    }else{//down键
-        if($('.' + item + '.hover').position().top>280){
-            $("#"+searchPage).scrollTop(scrollPosition);
-        }else if($('.' + item + '.hover').position().top>=212){
+    } else {//down键
+        if ($('.' + item + '.hover').position().top > 280) {
+            $("#" + searchPage).scrollTop(scrollPosition);
+        } else if ($('.' + item + '.hover').position().top >= 212) {
             currentPosition = $("#searchPage").scrollTop();
-            $("#"+searchPage).scrollTop(currentPosition + 44);
-        }else if($('.' + item + '.hover').position().top<0){
-            $("#"+searchPage).scrollTop(scrollPosition);
+            $("#" + searchPage).scrollTop(currentPosition + 44);
+        } else if ($('.' + item + '.hover').position().top < 0) {
+            $("#" + searchPage).scrollTop(scrollPosition);
         }
     }
 }

@@ -34,29 +34,28 @@ public class GroupController {
 
     @ResponseBody
     @RequestMapping("/checkRepeatedId_group")
-    public String checkRepeatedId_group(String groupId){
-        if(groupService.isExist("groupId",groupId)){
+    public String checkRepeatedId_group(String groupId) {
+        if (groupService.isExist("groupId", groupId)) {
             return "{\"msg\":\"success\"}";
-        }else{
+        } else {
             return "{\"msg\":\"failed\"}";
         }
     }
 
     @ResponseBody
     @RequestMapping("/saveGroupInfo")
-    public String saveGroupInfo(@RequestParam("groupHeadportrait") CommonsMultipartFile groupHeadportrait,String groupId,String groupName,
-                                String groupCreator,String groupMemberIdList[],String groupMemberNickNameList[],HttpServletRequest request){
-        String prefix=groupHeadportrait.getOriginalFilename().substring(groupHeadportrait.getOriginalFilename().lastIndexOf(".")+1);//获取后缀名
-        String fileName="group"+groupId+System.currentTimeMillis()+"."+prefix;
+    public String saveGroupInfo(@RequestParam("groupHeadportrait") CommonsMultipartFile groupHeadportrait, String groupId, String groupName,
+                                String groupCreator, String groupMemberIdList[], String groupMemberNickNameList[], HttpServletRequest request) {
+        String prefix = groupHeadportrait.getOriginalFilename().substring(groupHeadportrait.getOriginalFilename().lastIndexOf(".") + 1);//获取后缀名
+        String fileName = "group" + groupId + System.currentTimeMillis() + "." + prefix;
         try {
             //获取输出流
-            OutputStream os=new FileOutputStream("/Library/ApacheTomcat/picdata/"+fileName);
+            OutputStream os = new FileOutputStream("/Library/ApacheTomcat/picdata/" + fileName);
             //获取输入流 CommonsMultipartFile 中可以直接得到文件的流
-            InputStream is=groupHeadportrait.getInputStream();
+            InputStream is = groupHeadportrait.getInputStream();
             int temp;
             //一个一个字节的读取并写入
-            while((temp=is.read())!=(-1))
-            {
+            while ((temp = is.read()) != (-1)) {
                 os.write(temp);
             }
             os.flush();
@@ -69,57 +68,56 @@ public class GroupController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        MygroupEntity groupEntity=new MygroupEntity();
+        MygroupEntity groupEntity = new MygroupEntity();
         groupEntity.setGroupCreatorId(groupCreator);
-        groupEntity.setGroupHeadPortrait("http://localhost:8089/"+fileName);
+        groupEntity.setGroupHeadPortrait("http://localhost:8089/" + fileName);
         groupEntity.setGroupName(groupName);
         groupEntity.setGroupId(groupId);
-        Date date=new Date();
+        Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-        String createTime=sdf.format(date);
+        String createTime = sdf.format(date);
         groupEntity.setGroupCreateTime(createTime);
         groupService.save(groupEntity);
-        System.out.println("id是"+groupMemberIdList[0]);
-        System.out.println("昵称是"+groupMemberNickNameList[0]);
+        System.out.println("id是" + groupMemberIdList[0]);
+        System.out.println("昵称是" + groupMemberNickNameList[0]);
         //将群组映射关系保存下来
-        for(int i=0;i<groupMemberIdList.length;i++){
-            GrouprelationshipmappingEntity mappingEntity=new GrouprelationshipmappingEntity();
+        for (int i = 0; i < groupMemberIdList.length; i++) {
+            GrouprelationshipmappingEntity mappingEntity = new GrouprelationshipmappingEntity();
             mappingEntity.setGroupId(groupId);
             mappingEntity.setUserId(groupMemberIdList[i]);
             mappingEntity.setUserRemark(groupMemberNickNameList[i]);
             mappingEntity.setUserJoinTime(createTime);
             grouprelationshipmappingService.save(mappingEntity);
         }
-        HttpSession session=request.getSession();
-        Queue<String> sendQueue=(Queue<String>) session.getAttribute("send");
-        for(int j=0;j<groupMemberIdList.length;j++){//这里发送消息去IM服务器要等到保存操作全部完成
-            sendQueue.offer("create,"+groupMemberIdList[j]+","+groupId);
-            System.out.println("创建群组，消息以发送"+"create,"+groupMemberIdList[j]+","+groupId);
+        HttpSession session = request.getSession();
+        Queue<String> sendQueue = (Queue<String>) session.getAttribute("send");
+        for (int j = 0; j < groupMemberIdList.length; j++) {//这里发送消息去IM服务器要等到保存操作全部完成
+            sendQueue.offer("create," + groupMemberIdList[j] + "," + groupId);
+            System.out.println("创建群组，消息以发送" + "create," + groupMemberIdList[j] + "," + groupId);
         }
-        session.setAttribute("send",sendQueue);
-        session.setAttribute("send_flag","1");
+        session.setAttribute("send", sendQueue);
+        session.setAttribute("send_flag", "1");
         return "{\"msg\":\"success\"}";
     }
+
     @ResponseBody
     @RequestMapping("/saveEditGroupInfo")
-    public String saveEditGroupInfo(HttpServletRequest request,String editGroupId,String editGroupName,
-                                String groupMemberIdList[],String groupMemberNickNameList[]) throws IOException {
-        System.out.println("啦啦啦啦啦啦"+editGroupId);
+    public String saveEditGroupInfo(HttpServletRequest request, String editGroupId, String editGroupName,
+                                    String groupMemberIdList[], String groupMemberNickNameList[]) throws IOException {
+        System.out.println("啦啦啦啦啦啦" + editGroupId);
         MygroupEntity groupEntity = groupService.get("groupId", editGroupId);
 
-        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(request.getSession().getServletContext());
-        if(multipartResolver.isMultipart(request)){
-            MultipartHttpServletRequest multiRequest=(MultipartHttpServletRequest)request;
-            Iterator iter=multiRequest.getFileNames();
-            while(iter.hasNext())
-            {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+        if (multipartResolver.isMultipart(request)) {
+            MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+            Iterator iter = multiRequest.getFileNames();
+            while (iter.hasNext()) {
                 //一次遍历所有文件
-                MultipartFile file=multiRequest.getFile(iter.next().toString());
-                if(file!=null)
-                {
-                    String prefix=file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")+1);
+                MultipartFile file = multiRequest.getFile(iter.next().toString());
+                if (file != null) {
+                    String prefix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
                     String fileName = "group" + editGroupId + System.currentTimeMillis() + "." + prefix;
-                    String path="/Library/ApacheTomcat/picdata/"+fileName;
+                    String path = "/Library/ApacheTomcat/picdata/" + fileName;
                     //上传
                     file.transferTo(new File(path));
                     String oldGroupHeadportrait = groupEntity.getGroupHeadPortrait();
@@ -129,13 +127,13 @@ public class GroupController {
 
             }
             System.out.println("进来了");
-        }else{
+        } else {
             System.out.println("不是Multipart！");
         }
         groupEntity.setGroupName(editGroupName);
         groupService.update(groupEntity);
         //将群组映射关系保存下来
-        if(groupMemberIdList!=null) {
+        if (groupMemberIdList != null) {
             for (int i = 0; i < groupMemberIdList.length; i++) {
                 GrouprelationshipmappingEntity mappingEntity = new GrouprelationshipmappingEntity();
                 mappingEntity.setGroupId(editGroupId);
@@ -147,13 +145,13 @@ public class GroupController {
                 mappingEntity.setUserJoinTime(joinTime);
                 grouprelationshipmappingService.save(mappingEntity);
                 //将新加入的小组成员添加到服务器群组列表里面
-                HttpSession session=request.getSession();
-                Queue<String> sendQueue=(Queue<String>)session.getAttribute("send");
-                sendQueue.offer("add,"+groupMemberIdList[i]+","+editGroupId);
-                session.setAttribute("send",sendQueue);//更新消息一定要放在更新flag之前，因为flag一但满足，线程会抢在消息更新之前
-                session.setAttribute("send_flag","1");
+                HttpSession session = request.getSession();
+                Queue<String> sendQueue = (Queue<String>) session.getAttribute("send");
+                sendQueue.offer("add," + groupMemberIdList[i] + "," + editGroupId);
+                session.setAttribute("send", sendQueue);//更新消息一定要放在更新flag之前，因为flag一但满足，线程会抢在消息更新之前
+                session.setAttribute("send_flag", "1");
             }
-        }else{
+        } else {
             System.out.println("没有新成员加入");
         }
         return "{\"msg\":\"success\"}";

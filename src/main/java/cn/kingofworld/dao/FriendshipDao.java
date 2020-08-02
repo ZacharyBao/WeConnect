@@ -33,15 +33,15 @@ public class FriendshipDao extends BaseDao<FriendshipEntity, Integer> {
     @SuppressWarnings("unchecked")
     public List getFriendsId(String id) {//得到好友的id
         List list = new ArrayList();
-        Set set=new HashSet();//将重复的过滤
+        Set set = new HashSet();//将重复的过滤
         String friendId;
         String sql1 = "select fToId from friendship where fFromId like:id and (fIsFriend =:isfriend or fIsFriend=:isfriend2)";
         Query query1 = getSession().createSQLQuery(sql1);
         int isfriend = 1;
-        int isfriend2=2;
+        int isfriend2 = 2;
         query1.setString("id", "%" + id + "%");
         query1.setInteger("isfriend", isfriend);
-        query1.setInteger("isfriend2",isfriend2);
+        query1.setInteger("isfriend2", isfriend2);
         List fisrtPart = query1.list();
         Iterator iterator = fisrtPart.iterator();
         while (iterator.hasNext()) {
@@ -53,7 +53,7 @@ public class FriendshipDao extends BaseDao<FriendshipEntity, Integer> {
         Query query2 = getSession().createSQLQuery(sql2);
         query2.setString("id", "%" + id + "%");
         query2.setInteger("isfriend", isfriend);
-        query2.setInteger("isfriend2",isfriend2);
+        query2.setInteger("isfriend2", isfriend2);
         List secondPart = query2.list();
         Iterator iterator2 = secondPart.iterator();
         while (iterator2.hasNext()) {
@@ -65,7 +65,7 @@ public class FriendshipDao extends BaseDao<FriendshipEntity, Integer> {
     }
 
     @SuppressWarnings("unchecked")
-    public List<Integer> getFriendshipItemNum(String from,String to){//删除好友时，获取好友表中那一项，将其删除
+    public List<Integer> getFriendshipItemNum(String from, String to) {//删除好友时，获取好友表中那一项，将其删除
         List<Integer> list = new ArrayList<Integer>();
         String sql1 = "select fNum from friendship where fFromId like:from and fToId like:to";
         Query query1 = getSession().createSQLQuery(sql1);
@@ -81,18 +81,18 @@ public class FriendshipDao extends BaseDao<FriendshipEntity, Integer> {
     }
 
     @SuppressWarnings("unchecked")
-    public List<String> getFriendRequest(String id){//找到发送过来的请求，等待同意或者拒绝
-        List<String> list=new ArrayList<String>();
-        String sql="select fFromId from friendship  where fToId like:to and fIsFriend=:flag";
-        Query query=getSession().createSQLQuery(sql);
-        query.setString("to","%"+id+"%");
-        query.setInteger("flag",0);
+    public List<String> getFriendRequest(String id) {//找到发送过来的请求，等待同意或者拒绝
+        List<String> list = new ArrayList<String>();
+        String sql = "select fFromId from friendship  where fToId like:to and fIsFriend=:flag";
+        Query query = getSession().createSQLQuery(sql);
+        query.setString("to", "%" + id + "%");
+        query.setInteger("flag", 0);
         list.addAll(query.list());
         return list;
     }
 
     @SuppressWarnings("unchecked")
-    public List<Integer> getFriendshipItemNumTwo(String from,String to){
+    public List<Integer> getFriendshipItemNumTwo(String from, String to) {
         List<Integer> list = new ArrayList<Integer>();
         String sql1 = "select fNum from friendship where fFromId like:from and fToId like:to";
         Query query1 = getSession().createSQLQuery(sql1);
@@ -103,12 +103,12 @@ public class FriendshipDao extends BaseDao<FriendshipEntity, Integer> {
     }
 
     @SuppressWarnings("unchecked")
-    public List<String> getApprovedFriendRequest(String id){//得到通过的请求
-        List<String> list=new ArrayList<String>();
-        String sql="select fToId from friendship  where fFromId like:a and fIsFriend=:flag";
-        Query query=getSession().createSQLQuery(sql);
-        query.setString("a","%"+id+"%");
-        query.setInteger("flag",2);
+    public List<String> getApprovedFriendRequest(String id) {//得到通过的请求
+        List<String> list = new ArrayList<String>();
+        String sql = "select fToId from friendship  where fFromId like:a and fIsFriend=:flag";
+        Query query = getSession().createSQLQuery(sql);
+        query.setString("a", "%" + id + "%");
+        query.setInteger("flag", 2);
         list.addAll(query.list());
         return list;
     }

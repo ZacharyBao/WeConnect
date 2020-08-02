@@ -42,11 +42,11 @@
       <artifactId>hibernate-c3p0</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
     <dependency>
-      <groupId>org.hibernate</groupId>
+      <groupId>org.hibernate.validator</groupId>
       <artifactId>hibernate-validator</artifactId>
-      <version>4.1.0.Final</version>
+      <version>6.1.5.Final</version>
     </dependency>
 
     <dependency>
@@ -61,10 +61,11 @@
       <version>2.5</version>
       <scope>provided</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.39</version>
+      <version>8.0.21</version>
     </dependency>
 
     <dependency>

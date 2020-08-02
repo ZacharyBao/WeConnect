@@ -4,37 +4,37 @@
 var searchInfoId;
 var searchInfoNickName;
 var searchInfoRegion;
-var isFind=0;//标记是否通过账号查找到好友
+var isFind = 0;//标记是否通过账号查找到好友
 //查找好友
-function findFriend(){
-    $("#searchBtn").click(function(){
-        var searchuserid=$("#searchInput").val();
+function findFriend() {
+    $("#searchBtn").click(function () {
+        var searchuserid = $("#searchInput").val();
         $.ajax({
             url: "/getUserById",
             type: "POST",
             dataType: "json",
-            data:{
-                id:searchuserid
+            data: {
+                id: searchuserid
             },
-            beforeSend: function(request) {
+            beforeSend: function (request) {
                 request.setRequestHeader("myflag", "y");
             },
             success: function (data) {
-                searchInfoId=searchuserid;
-                if(data[0].userConstellation!="null") {
+                searchInfoId = searchuserid;
+                if (data[0].userConstellation != "null") {
                     searchInfoNickName = data[0].userNickName;
                     searchInfoRegion = data[0].userProvince + " " + data[0].userCity;
-                    isFind=1;
-                    var content1='<tr> <td>账号：</td><td>'+searchInfoId+'</td></tr>';
-                    var content2='<tr> <td>昵称：</td><td>'+searchInfoNickName+'</td></tr>';
-                    var content3='<tr><td>地区：</td><td>'+searchInfoRegion+'</td></tr>';
+                    isFind = 1;
+                    var content1 = '<tr> <td>账号：</td><td>' + searchInfoId + '</td></tr>';
+                    var content2 = '<tr> <td>昵称：</td><td>' + searchInfoNickName + '</td></tr>';
+                    var content3 = '<tr><td>地区：</td><td>' + searchInfoRegion + '</td></tr>';
                     $("#searchInfo").empty();
-                    $("#searchInfo").append(content1+content2+content3);
-                    $("#addBtn").css("background","#3071A9");
-                }else{
-                    isFind=0;
+                    $("#searchInfo").append(content1 + content2 + content3);
+                    $("#addBtn").css("background", "#3071A9");
+                } else {
+                    isFind = 0;
                     $("#searchInfo").empty();
-                    $("#addBtn").css("background","#e6e6e6");
+                    $("#addBtn").css("background", "#e6e6e6");
                     $("#searchInfo").append("该账号不存在！");
 
                 }
@@ -46,34 +46,35 @@ function findFriend(){
         });
     });
 }
+
 //添加好友
-function addFriend(){
-    $("#addBtn").click(function(){
-        if(isFind==1){
-            submitFriendRequest(searchInfoId)
+function addFriend() {
+    $("#addBtn").click(function () {
+            if (isFind == 1) {
+                submitFriendRequest(searchInfoId)
+            }
         }
-    }
     );
 }
 
-function submitFriendRequest(goalId){
+function submitFriendRequest(goalId) {
     $.ajax({
         url: "/sendFriendRequest",
         type: "POST",
         dataType: "json",
-        data:{
-            from:userId,
-            to:goalId
+        data: {
+            from: userId,
+            to: goalId
         },
-        beforeSend: function(request) {
+        beforeSend: function (request) {
             request.setRequestHeader("myflag", "y");
         },
         success: function (data) {
-            if(data[0]=="success"){
+            if (data[0] == "success") {
                 alert("好友请求发送成功！");
-            }else if(data[0]=="added"){
+            } else if (data[0] == "added") {
                 alert("已向该账号发送过请求！");
-            }else if(data[0]=="friend"){
+            } else if (data[0] == "friend") {
                 alert("已经添加其为好友！");
             }
         },

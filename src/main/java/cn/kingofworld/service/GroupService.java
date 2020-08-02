@@ -12,11 +12,12 @@ import javax.annotation.Resource;
  */
 @Service
 @Transactional
-public class GroupService extends BaseService<MygroupEntity,Integer> {
+public class GroupService extends BaseService<MygroupEntity, Integer> {
     @Resource
     private GroupDao groupDao;
+
     @Resource
-    public void setGroupDao(GroupDao groupDao){
+    public void setGroupDao(GroupDao groupDao) {
         super.setBaseDao(groupDao);
     }
 }

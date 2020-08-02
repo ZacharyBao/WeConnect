@@ -16,15 +16,15 @@ public class PermissionInterceptor implements HandlerInterceptor {
                              HttpServletResponse response, Object handler) throws Exception {
 
         String url = request.getRequestURI();
-        String header=request.getHeader("myflag");
-        String requestUrl=request.getRequestURI();
+        String header = request.getHeader("myflag");
+        String requestUrl = request.getRequestURI();
         //System.out.println("request.getRequestURI()"+request.getRequestURI());
         //System.out.println("request.getServletPath()"+request.getServletPath());
         //System.out.println("request.getContextPath()"+request.getContextPath());
-        if(header!=null){
+        if (header != null) {
             return true;
-        }else{
-            if(request.getRequestURI().equals("/")){//主页则让通过
+        } else {
+            if (request.getRequestURI().equals("/")) {//主页则让通过
                 return true;
             }
         }

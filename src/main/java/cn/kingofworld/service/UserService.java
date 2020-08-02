@@ -13,11 +13,12 @@ import javax.annotation.Resource;
  */
 @Service
 @Transactional
-public class UserService extends BaseService<UserEntity,Integer>{
+public class UserService extends BaseService<UserEntity, Integer> {
     @Resource
     private UserDao userDao;
+
     @Resource
-    public void setUserDao(UserDao userDao){
+    public void setUserDao(UserDao userDao) {
         super.setBaseDao(userDao);
     }
 

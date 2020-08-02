@@ -33,7 +33,8 @@
                 </div>
                 <div id="list_button">
                     <div class="dropdown">
-                        <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <a id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">
                             <img src="WebContent/bgpic/anjian.png" width="100%">
                         </a>
 
@@ -52,26 +53,30 @@
                         <div class="modal-dialog" role="document" style="width:300px;">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_6">修改头像</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="post"  id="change_portrait" enctype="multipart/form-data">
-                                    <input type="file" name="changefile"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="height:25px;width:250px;border-radius:4px;"/>
+                                    <form method="post" id="change_portrait" enctype="multipart/form-data">
+                                        <input type="file" name="changefile" accept=".jpg,.png,.jpeg"
+                                               onchange="filesize(this)"
+                                               style="height:25px;width:250px;border-radius:4px;"/>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" id="mychange" >修改</button>
+                                    <button type="button" class="btn btn-default" id="mychange">修改</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog"  role="document">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_2">个人资料</h4>
                                 </div>
                                 <div class="modal-body">
@@ -79,57 +84,74 @@
                                         <tr>
                                             <td><label class="mylabel">用户名</label></td>
                                             <td><input class="mytext" id="userid" name="userid" type="text"/></td>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">姓名</label></td>
-                                            <td><input class="mytext" id="username" name="username" type="text" /></td>
-                                            <td><div class="showmsg" id="username_div"></div></td>
+                                            <td><input class="mytext" id="username" name="username" type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="username_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">昵称</label></td>
                                             <td><input class="mytext" id="nickname" name="nickname" type="text"/></td>
-                                            <td><div class="showmsg" id="nickname_div"></div></td>
+                                            <td>
+                                                <div class="showmsg" id="nickname_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">性别</label></td>
                                             <td>
-                                                <select  class="mytext" id="usergender" name="usergender" >
+                                                <select class="mytext" id="usergender" name="usergender">
                                                     <option>男</option>
                                                     <option>女</option>
                                                     <option>其他</option>
                                                 </select>
                                             </td>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">生日</label></td>
                                             <td>
-                                                <select id="year" style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                <select id="year"
+                                                        style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
 
                                                 </select>
-                                                <select id="month"style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                <select id="month"
+                                                        style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
 
                                                 </select>
-                                                <select id="day"style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                <select id="day"
+                                                        style="height:25px;width:78px;border-radius:4px;border:1px solid #bbb;outline: none">
 
                                                 </select></td>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">手机号</label></td>
-                                            <td><input id="phonenum" name="usertel" class="mytext" type="text" /></td>
-                                            <td><div class="showmsg" id="phonenum_div"></div></td>
+                                            <td><input id="phonenum" name="usertel" class="mytext" type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="phonenum_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">故乡</label></td>
                                             <td>
-                                                <select id="province" style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                <select id="province"
+                                                        style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
                                                     <option>江苏</option>
                                                     <option>浙江</option>
                                                     <option>上海</option>
                                                 </select>
-                                                <select id="city"style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
+                                                <select id="city"
+                                                        style="height:25px;width:121px;border-radius:4px;border:1px solid #bbb;outline: none">
                                                     <option>南京</option>
                                                     <option>镇江</option>
                                                     <option>苏州</option>
@@ -145,12 +167,16 @@
                                                     <option>连云港</option>
                                                 </select>
                                             </td>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">个性签名</label></td>
-                                            <td><input id="signature" name="signature" class="mytext" type="text" /></td>
-                                            <td><div class="showmsg" id="signature_div"></div></td>
+                                            <td><input id="signature" name="signature" class="mytext" type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="signature_div"></div>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -163,28 +189,38 @@
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal_8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document" >
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_8">修改密码</h4>
                                 </div>
                                 <div class="modal-body" style="border-radius: 4px;">
                                     <table>
                                         <tr>
                                             <td><label class="mylabel">原密码</label></td>
-                                            <td><input class="mytext" id="origionalPassword" name="origionalPassword" type="password"/></td>
-                                            <td><div class="showmsg" id="origionalPassword_div"></div></td>
+                                            <td><input class="mytext" id="origionalPassword" name="origionalPassword"
+                                                       type="password"/></td>
+                                            <td>
+                                                <div class="showmsg" id="origionalPassword_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">新密码</label></td>
-                                            <td><input class="mytext" id="newPassword" name="newPassword" type="password"/></td>
-                                            <td><div class="showmsg" id="newPassword_div"></div></td>
+                                            <td><input class="mytext" id="newPassword" name="newPassword"
+                                                       type="password"/></td>
+                                            <td>
+                                                <div class="showmsg" id="newPassword_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">确认密码</label></td>
-                                            <td><input class="mytext" id="repeatNewPassword" name="repeatNewPassword" type="password"/></td>
-                                            <td><div class="showmsg" id="repeatNewPassword_div"></div></td>
+                                            <td><input class="mytext" id="repeatNewPassword" name="repeatNewPassword"
+                                                       type="password"/></td>
+                                            <td>
+                                                <div class="showmsg" id="repeatNewPassword_div"></div>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>
@@ -199,14 +235,19 @@
                         <div class="modal-dialog" role="document" style="width:300px;">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_3">查找好友</h4>
                                 </div>
                                 <div class="modal-body">
                                     <table>
                                         <tr>
-                                            <td><input class="mytext" style="width:150px;margin-right:5px;" id="searchInput" name="searchInput" type="text" placeholder="请输入好友的账号"/></td>
-                                            <td><button type="button" id="searchBtn" class="btn btn-default">搜索</button></td>
+                                            <td><input class="mytext" style="width:150px;margin-right:5px;"
+                                                       id="searchInput" name="searchInput" type="text"
+                                                       placeholder="请输入好友的账号"/></td>
+                                            <td>
+                                                <button type="button" id="searchBtn" class="btn btn-default">搜索</button>
+                                            </td>
                                         </tr>
                                     </table>
                                     <table id="searchInfo">
@@ -232,7 +273,8 @@
                         <div class="modal-dialog" role="document" style="width:400px;">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_4">系统消息</h4>
                                 </div>
                                 <div class="modal-body">
@@ -252,40 +294,54 @@
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal_7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document" >
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_7">创建群组</h4>
                                 </div>
                                 <div class="modal-body" style="border-radius: 4px;">
-                                    <form action="" method="post" name="registerGroup" id="registerGroup" enctype="multipart/form-data">
+                                    <form action="" method="post" name="registerGroup" id="registerGroup"
+                                          enctype="multipart/form-data">
                                         <table>
                                             <tr>
                                                 <td><label class="mylabel">群组Id</label></td>
                                                 <td><input class="mytext" id="groupId" name="groupId" type="text"/></td>
-                                                <td><div class="showmsg" id="groupId_div"></div></td>
+                                                <td>
+                                                    <div class="showmsg" id="groupId_div"></div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td><label class="mylabel">群组名称</label></td>
-                                                <td><input class="mytext" id="groupName" name="groupName" type="text"/></td>
-                                                <td><div class="showmsg" id="groupName_div"></div></td>
+                                                <td><input class="mytext" id="groupName" name="groupName" type="text"/>
+                                                </td>
+                                                <td>
+                                                    <div class="showmsg" id="groupName_div"></div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td><label class="mylabel">选择头像</label></td>
-                                                <td><input type="file" id="groupHeadportrait" name="groupHeadportrait"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="border-radius:4px;"/></td>
-                                                <td><div class="showmsg" id="groupHeadportrait_div"></div></td>
+                                                <td><input type="file" id="groupHeadportrait" name="groupHeadportrait"
+                                                           accept=".jpg,.png,.jpeg" onchange="filesize(this)"
+                                                           style="border-radius:4px;"/></td>
+                                                <td>
+                                                    <div class="showmsg" id="groupHeadportrait_div"></div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td><label class="mylabel">邀请好友</label></td>
-                                                <td><input class="mytext" id="inviteFriend" type="text" autocomplete="off"/></td>
+                                                <td><input class="mytext" id="inviteFriend" type="text"
+                                                           autocomplete="off"/></td>
                                                 <div id="searchResult" style="display: none">
                                                     <!--<div class="searchItem">
                                                         <div class="searchTouxiang"><img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="searchImgTouxiang"/></div>
                                                         <div class="searchItemUsername">别处理</div>
                                                     </div>-->
                                                 </div>
-                                                <td><div class="showmsg"></div></td>
+                                                <td>
+                                                    <div class="showmsg"></div>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td><label class="mylabel">已加好友</label></td>
@@ -297,7 +353,9 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="btn btn-default" id="clearAddedFriend">重新添加</button>
+                                                    <button type="button" class="btn btn-default" id="clearAddedFriend">
+                                                        重新添加
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -314,7 +372,8 @@
                         <div class="modal-dialog" role="document" style="width:200px;">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="myModalLabel_5">您确定要退出?</h4>
                                 </div>
                                 <div class="modal-body" style="border-radius: 4px;">
@@ -368,10 +427,11 @@
     <div id="rightside">
         <div id="right_top">
             <div id="chatMateName">
-                <div id="in_chatMateName" data-toggle="modal" data-target="#myModal_1" style="position:relative;z-index:2">
-                <!--<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>-->
-                <!--这个div的z-index设置为2就是为了比底下的聊天窗口的z-index值要高，因为这个div有一个显示群组成员信息的div（这个div的z-index值跟随其父容器），
-                点击打开这个div展示成员信息时，会盖住底下的聊天窗口，而此时如果z-index值小于聊天窗口，会导致这显示群成员信息的div没在最表层，导致其滚动条失效-->
+                <div id="in_chatMateName" data-toggle="modal" data-target="#myModal_1"
+                     style="position:relative;z-index:2">
+                    <!--<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>-->
+                    <!--这个div的z-index设置为2就是为了比底下的聊天窗口的z-index值要高，因为这个div有一个显示群组成员信息的div（这个div的z-index值跟随其父容器），
+                    点击打开这个div展示成员信息时，会盖住底下的聊天窗口，而此时如果z-index值小于聊天窗口，会导致这显示群成员信息的div没在最表层，导致其滚动条失效-->
                     <!-- Modal -->
                 </div>
                 <!-- Modal -->
@@ -379,26 +439,34 @@
                     <div class="modal-dialog" role="document" style="width:400px;">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel_1">好友资料</h4>
                             </div>
                             <div class="modal-body">
                                 <table>
                                     <tr>
                                         <td><label class="mylabel">用户名</label></td>
-                                        <td><div class="mytext" id="friend_userid" name="userid" type="text"></div></td>
+                                        <td>
+                                            <div class="mytext" id="friend_userid" name="userid" type="text"></div>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><label class="mylabel">姓名</label></td><!--底下的input需要加自动居中属性，因为全局居中属性对input不适用-->
-                                        <td><input class="mytext" id="friend_username" name="username" type="text" style="text-align: center;"/></td>
+                                        <td><label class="mylabel">姓名</label></td>
+                                        <!--底下的input需要加自动居中属性，因为全局居中属性对input不适用-->
+                                        <td><input class="mytext" id="friend_username" name="username" type="text"
+                                                   style="text-align: center;"/></td>
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">昵称</label></td>
-                                        <td><input class="mytext" id="friend_nickname" name="nickname" type="text" style="text-align: center;"/></td>
+                                        <td><input class="mytext" id="friend_nickname" name="nickname" type="text"
+                                                   style="text-align: center;"/></td>
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">性别</label></td>
-                                        <td><div  class="mytext" id="friend_usergender"></div></td>
+                                        <td>
+                                            <div class="mytext" id="friend_usergender"></div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">生日</label></td>
@@ -414,7 +482,9 @@
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">手机号</label></td>
-                                        <td><div id="friend_phonenum" name="usertel" class="mytext" type="text"></div></td>
+                                        <td>
+                                            <div id="friend_phonenum" name="usertel" class="mytext" type="text"></div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">故乡</label></td>
@@ -424,7 +494,8 @@
                                     </tr>
                                     <tr>
                                         <td><label class="mylabel">个性签名</label></td>
-                                        <td><input id="friend_signature" name="signature" class="mytext" type="text" style="text-align: center;"/></td>
+                                        <td><input id="friend_signature" name="signature" class="mytext" type="text"
+                                                   style="text-align: center;"/></td>
                                     </tr>
                                 </table>
                             </div>
@@ -436,50 +507,71 @@
                 </div>
                 <!-- Modal 这个modal用来显示群组信息 -->
                 <div class="modal fade" id="myModal_9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document" >
+                    <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel_9">群组信息</h4>
                             </div>
                             <div class="modal-body" style="border-radius: 4px;">
-                                <form action="" method="post" name="editGroupInfo" id="editGroupInfo" enctype="multipart/form-data">
+                                <form action="" method="post" name="editGroupInfo" id="editGroupInfo"
+                                      enctype="multipart/form-data">
                                     <table>
                                         <tr>
                                             <td><label class="mylabel">群组Id</label></td>
-                                            <td><input class="mytext" id="editGroupId" name="editGroupId" type="text"/></td>
-                                            <td><div class="showmsg" id="editGroupId_div"></div></td>
+                                            <td><input class="mytext" id="editGroupId" name="editGroupId" type="text"/>
+                                            </td>
+                                            <td>
+                                                <div class="showmsg" id="editGroupId_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">群组名称</label></td>
-                                            <td><input class="mytext" id="editGroupName" name="editGroupName" type="text"/></td>
-                                            <td><div class="showmsg" id="editGroupName_div"></div></td>
+                                            <td><input class="mytext" id="editGroupName" name="editGroupName"
+                                                       type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="editGroupName_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">群主Id</label></td>
-                                            <td><input class="mytext" id="editCreatorId" name="editCreatorId" type="text"/></td>
-                                            <td><div class="showmsg" id="editCreatorId_div"></div></td>
+                                            <td><input class="mytext" id="editCreatorId" name="editCreatorId"
+                                                       type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="editCreatorId_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">创建时间</label></td>
-                                            <td><input class="mytext" id="editCreateTime" name="editCreateTime" type="text"/></td>
-                                            <td><div class="showmsg" id="editCreateTime_div"></div></td>
+                                            <td><input class="mytext" id="editCreateTime" name="editCreateTime"
+                                                       type="text"/></td>
+                                            <td>
+                                                <div class="showmsg" id="editCreateTime_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">更改头像</label></td>
-                                            <td ><input type="file" id="editGroupHeadportrait" name="editGroupHeadportrait"  accept=".jpg,.png,.jpeg" onchange="filesize(this)" style="border-radius:4px;"/></td>
-                                            <td><div class="showmsg" id="editGroupHeadportrait_div"></div></td>
+                                            <td><input type="file" id="editGroupHeadportrait"
+                                                       name="editGroupHeadportrait" accept=".jpg,.png,.jpeg"
+                                                       onchange="filesize(this)" style="border-radius:4px;"/></td>
+                                            <td>
+                                                <div class="showmsg" id="editGroupHeadportrait_div"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">邀请好友</label></td>
-                                            <td><input class="mytext" id="editInviteFriend" type="text" autocomplete="off"/></td>
+                                            <td><input class="mytext" id="editInviteFriend" type="text"
+                                                       autocomplete="off"/></td>
                                             <div id="editSearchResult" style="display: none">
                                                 <!--<div class="editSearchItem">
                                                     <div class="editSearchTouxiang"><img src="http://localhost:8089/headportrait/111111111510821787037.jpg" class="editSearchImgTouxiang"/></div>
                                                     <div class="editSearchItemUsername">别处理</div>
                                                 </div>-->
                                             </div>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td><label class="mylabel">已加好友</label></td>
@@ -490,7 +582,9 @@
                                                     </div>-->
                                                 </div>
                                             </td>
-                                            <td><div class="showmsg"></div></td>
+                                            <td>
+                                                <div class="showmsg"></div>
+                                            </td>
                                         </tr>
                                     </table>
                                 </form>
@@ -508,7 +602,8 @@
                     <div class="modal-dialog" role="document" style="width:250px;">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel_10">您确定要退出群组?</h4>
                             </div>
                             <div class="modal-body" style="border-radius: 4px;">
@@ -550,12 +645,17 @@
                 <textarea id="in_textArea"></textarea>
             </div>
             <div style="height:40px;width:682px;text-align: right;">
-                <button id="toSend"style="height:30px;width:90px;background: #f8f8f8;outline: none;border:1px solid #c1c1c1;border-radius: 4px;">发送</button>
+                <button id="toSend"
+                        style="height:30px;width:90px;background: #f8f8f8;outline: none;border:1px solid #c1c1c1;border-radius: 4px;">
+                    发送
+                </button>
             </div>
         </div>
     </div>
 </div>
-<div id="copyright" style="width:1000px;margin:0 auto;color:white;font-family: 幼圆;text-align: center;">©2016-2018 www.kingofworld.cn(Zachary Bao).All Right Reserved</div>
+<div id="copyright" style="width:1000px;margin:0 auto;color:white;font-family: 幼圆;text-align: center;">©2016-2018
+    www.kingofworld.cn(Zachary Bao).All Right Reserved
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>

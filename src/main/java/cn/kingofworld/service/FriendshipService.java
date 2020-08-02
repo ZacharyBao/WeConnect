@@ -13,35 +13,36 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class FriendshipService extends BaseService<FriendshipEntity,Integer>{
+public class FriendshipService extends BaseService<FriendshipEntity, Integer> {
     @Resource
     private FriendshipDao friendshipDao;
+
     @Resource
-    public void setFriendshipDao(FriendshipDao friendshipDao){
+    public void setFriendshipDao(FriendshipDao friendshipDao) {
         super.setBaseDao(friendshipDao);
     }
 
-    public int HasAddedTheAccount(String from,String to) {
-        return friendshipDao.HasAddedTheAccount(from,to);
+    public int HasAddedTheAccount(String from, String to) {
+        return friendshipDao.HasAddedTheAccount(from, to);
     }
 
     public List getFriendsId(String id) {
         return friendshipDao.getFriendsId(id);
     }
 
-    public List<Integer> getFriendshipItemNum(String from,String to){
-        return friendshipDao.getFriendshipItemNum(from,to);
+    public List<Integer> getFriendshipItemNum(String from, String to) {
+        return friendshipDao.getFriendshipItemNum(from, to);
     }
 
-    public List<String> getFriendRequest(String id){
+    public List<String> getFriendRequest(String id) {
         return friendshipDao.getFriendRequest(id);
     }
 
-    public List<String> getApprovedFriendRequest(String id){
+    public List<String> getApprovedFriendRequest(String id) {
         return friendshipDao.getApprovedFriendRequest(id);
     }
 
-    public List<Integer> getFriendshipItemNumTwo(String from,String to){
-        return friendshipDao.getFriendshipItemNumTwo(from,to);
+    public List<Integer> getFriendshipItemNumTwo(String from, String to) {
+        return friendshipDao.getFriendshipItemNumTwo(from, to);
     }
 }

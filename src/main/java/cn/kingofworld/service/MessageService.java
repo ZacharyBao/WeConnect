@@ -9,11 +9,12 @@ import javax.annotation.Resource;
 
 @Service
 @Transactional
-public class MessageService extends BaseService<MessageEntity,Integer> {
+public class MessageService extends BaseService<MessageEntity, Integer> {
     @Resource
     private MessageDao messageDao;
+
     @Resource
-    public void setMessageDao(MessageDao messageDao){
+    public void setMessageDao(MessageDao messageDao) {
         super.setBaseDao(messageDao);
     }
 }
